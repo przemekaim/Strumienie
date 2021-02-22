@@ -57,9 +57,9 @@ public class Main {
 
         String[] tab = {"a", "b", "c", "e"};
         Stream<String> song =
-                Arrays.stream(tab,0,3)
-                .filter(w -> w.length() == 1)
-                .map(String::toUpperCase);
+                Arrays.stream(tab, 0, 3)
+                        .filter(w -> w.length() == 1)
+                        .map(String::toUpperCase);
 
         song.forEach(System.out::println);
 

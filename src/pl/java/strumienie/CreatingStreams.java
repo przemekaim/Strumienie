@@ -117,11 +117,23 @@ public class CreatingStreams {
                 .limit(20).toArray();
 
         // operacje konczace terminal operations
-        String[] strings = {"123","wieczorynka", "3245", "waj", "przemek", "dsgfjkgdsg", "wierzcholek", "wieczor", "x", "wal"};
+        String[] strings = {"sadsadas","1wieczorynka", "3245", "1waj", "przemek", "dsgfjkgdsg", "1wierzcholek", "1wieczor", "x", "1wal"};
         Optional<String> max = Arrays.stream(strings).min(String::compareToIgnoreCase);
         System.out.println("maksimum: " + max.orElse(""));
 
         Optional<String> startsWithW = Arrays.stream(strings).parallel().filter(s -> s.startsWith("w")).findAny();
         System.out.println("slowo na W: " + startsWithW.orElse(""));
+
+        //String result = startsWithW.orElseThrow(IllegalStateException::new);
+        //System.out.println(result);
+
+        List<String> results = new ArrayList<>();
+
+        Optional<String> sta = Arrays.stream(strings).filter(w -> w.startsWith("s")).findFirst();
+        sta.ifPresent(results::add);
+        Optional<String> s = sta.map(w -> results.get(0));
+        System.out.println(s.orElse("Brak"));
+        s.map(String::toUpperCase).map(results::add);
+        results.forEach(System.out::println);
     }
 }

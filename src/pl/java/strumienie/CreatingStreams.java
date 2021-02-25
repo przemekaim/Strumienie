@@ -107,7 +107,6 @@ public class CreatingStreams {
 
         Stream<String> uq = Stream.of("siema", "elo", "siema", "elo", "tutaj", "ja", "nazywam", "sie", "a", "on", "nazywa", "sie", "przemek").distinct();
 //        uq.forEach(System.out::println);
-
         Object[] powers = Stream.iterate(1.0, p -> p * 2)
                 .peek(e -> System.out.println("Pobieram element: " + e))
                 .peek(x -> {
@@ -115,7 +114,6 @@ public class CreatingStreams {
                         System.out.println("Dziala git");
                 })
                 .limit(20).toArray();
-
         // operacje konczace terminal operations
         String[] strings = {"sadsadas","1wieczorynka", "3245", "1waj", "przemek", "dsgfjkgdsg", "1wierzcholek", "1wieczor", "x", "1wal"};
         Optional<String> max = Arrays.stream(strings).min(String::compareToIgnoreCase);

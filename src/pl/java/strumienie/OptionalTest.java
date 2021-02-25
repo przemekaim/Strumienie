@@ -3,10 +3,7 @@ package pl.java.strumienie;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Locale;
-import java.util.Optional;
+import java.util.*;
 
 public class OptionalTest {
     public static void main(String[] args) throws IOException {
@@ -37,8 +34,12 @@ public class OptionalTest {
 
         var results = new HashSet<String>();
         optionalValue.ifPresent(results::add);
-        Optional<Boolean> added = optionalValue.map(results::add);
+        Optional<Boolean> added = optionalValue.map(results::contains);
         System.out.println(added);
+
+        Iterator<String> iterator = results.iterator();
+        String next = iterator.next();
+        System.out.println(next);
 
         System.out.println(Mathematics.inverse(4.0).flatMap(Mathematics::squareRoot));
         System.out.println(Mathematics.inverse(-1.0).flatMap(Mathematics::squareRoot));

@@ -6,8 +6,11 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.IntSummaryStatistics;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Main {
@@ -51,10 +54,12 @@ public class Main {
         // 1.2 Tworzenie strumieni, tablice
         var contents = Files.readString(Paths.get("alice30.txt"));
         Stream<String> words = Stream.of(contents.split("\\PL+"));
-        words.filter(w -> w.length() > 12)
-                .sorted(String::compareToIgnoreCase);
+//        String collect = words.filter(w -> w.length() > 12)
+//                .sorted(String::compareToIgnoreCase)
+//                .collect(Collectors.joining(","));
 
-
+//      IntSummaryStatistics collect1 = words.collect(Collectors.summarizingInt(String::length));
+        //System.out.println(collect);
         String[] tab = {"a", "b", "c", "e"};
         Stream<String> song =
                 Arrays.stream(tab, 0, 3)
@@ -72,5 +77,10 @@ public class Main {
                 n -> n.compareTo(limit) < 0,
                 n -> n.add(BigInteger.ONE));
         integers.forEach(System.out::println);
+//        String a = "a";
+//        String b = "a";
+//        String c = "a";
+//        String d = "a";
+//        Stream<String>aa = Stream.of(a,b,c,d, contents);
     }
 }

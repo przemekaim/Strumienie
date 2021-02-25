@@ -2,6 +2,7 @@ package pl.java.strumienie;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -27,6 +28,12 @@ public class Mathematics {
         }
         Optional<Double> r = Optional.of(number).flatMap(Mathematics::inverse).flatMap(Mathematics::squareRoot);
         r.ifPresent(System.out::println);
+
+        String collect = results.stream().sorted().map(Objects::toString).collect(Collectors.joining(", "));
+        System.out.println(collect);
+
+
+
     }
 
     public static Optional<Double> inverse(double x) {

@@ -15,8 +15,10 @@ import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-//        var contents = Files.readString(Paths.get("alice30.txt"));
-//        List<String> words = List.of(contents.split("\\PL+")); //separator: wszystkie znaki inne niz litery
+        //var contents = Files.readString(Paths.get("alice30.txt"));
+        //List<String> words = List.of(contents.split("\\PL+")); //separator: wszystkie znaki inne niz litery
+        //int result = words.stream().reduce(0, (total, word) -> total + word.length(), Integer::sum);
+        //System.out.println(result);
 //        Instant start = Instant.now();
 //        long count1 = words.stream()
 //                .filter(w -> w.length() > 12)
@@ -54,6 +56,8 @@ public class Main {
         // 1.2 Tworzenie strumieni, tablice
         var contents = Files.readString(Paths.get("alice30.txt"));
         Stream<String> words = Stream.of(contents.split("\\PL+"));
+        //int sum = words.mapToInt(String::length).sum();
+        //System.out.println(sum);
 //        String collect = words.filter(w -> w.length() > 12)
 //                .sorted(String::compareToIgnoreCase)
 //                .collect(Collectors.joining(","));

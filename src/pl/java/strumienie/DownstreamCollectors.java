@@ -48,11 +48,11 @@ public class DownstreamCollectors {
             Stream<Locale> locales = Stream.of(Locale.getAvailableLocales());
             locales = Stream.of(Locale.getAvailableLocales());
             Map<String, Set<Locale>> countryToLocaleSet = locales.collect(groupingBy(Locale::getCountry, toSet()));
-            //System.out.println(countryToLocaleSet);
+            System.out.println(countryToLocaleSet);
 
             locales = Stream.of(Locale.getAvailableLocales());
             Map<String, Long> countryToLocaleCounts = locales.collect(groupingBy(Locale::getCountry, counting()));
-            //System.out.println(countryToLocaleCounts);
+            System.out.println(countryToLocaleCounts);
 
             Stream<City> cities = readCities("cities.txt");
             Map<String, Integer> stateToCityPopulation = cities.collect(groupingBy(City::getState,
@@ -69,6 +69,7 @@ public class DownstreamCollectors {
             Map<String, Set<String>> countryToLanguages = locales
                     .collect(groupingBy(Locale::getDisplayCountry,
                             mapping(Locale::getDisplayCountry, toSet())));
+            //System.out.println("--------");
             //System.out.println(countryToLanguages);
 
             cities = readCities("cities.txt");
@@ -94,8 +95,8 @@ public class DownstreamCollectors {
             List<Integer> collect = numbers.collect(toList());
             Optional<Integer> sum = collect.stream().reduce((a, b) -> a * b);
             sum.ifPresent(collect::add);
-            System.out.println(sum);
-            System.out.println(collect);
+            //System.out.println(sum);
+            //System.out.println(collect);
 
         }
     }
